@@ -1,0 +1,114 @@
+<template id="tpl-order">
+
+<div>
+
+<div class="card">
+
+<h2>📝 Pemesanan Bahan Ajar</h2>
+
+<form
+@submit.prevent="submitOrder">
+
+<div class="form-grid">
+
+<input
+v-model="form.nim"
+placeholder="NIM"
+required>
+
+<input
+v-model="form.nama"
+placeholder="Nama Mahasiswa"
+required>
+
+<select
+v-model="selectedPaket"
+required>
+
+<option value="">
+Pilih Paket
+</option>
+
+<option
+v-for="item in paket"
+:key="item.kode"
+:value="item">
+
+{{item.kode}} - {{item.nama}}
+
+</option>
+
+</select>
+
+<select
+v-model="selectedEkspedisi"
+required>
+
+<option value="">
+Pilih Ekspedisi
+</option>
+
+<option
+v-for="item in ekspedisi"
+:key="item.kode"
+:value="item">
+
+{{item.nama}}
+
+</option>
+
+</select>
+
+</div>
+
+<br>
+
+<div
+class="card"
+v-if="selectedPaket">
+
+<h4>Isi Paket</h4>
+
+<ul>
+
+<li
+v-for="mk in selectedPaket.isi"
+:key="mk">
+
+{{mk}}
+
+</li>
+
+</ul>
+
+<br>
+
+<strong>
+
+Total:
+
+{{formatRupiah(
+selectedPaket.harga
+)}}
+
+</strong>
+
+</div>
+
+<br>
+
+<button
+class="btn"
+type="submit">
+
+Buat Delivery Order
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</template>

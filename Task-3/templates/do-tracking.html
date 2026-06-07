@@ -1,0 +1,277 @@
+<template id="tpl-tracking">
+
+<div>
+
+<div class="card">
+
+<h2>🚚 Tracking Delivery Order</h2>
+
+<br>
+
+<div class="search-box">
+
+<input
+v-model="keyword"
+placeholder="Cari Nomor DO atau NIM"
+@keyup.enter="searchData"
+@keyup.esc="resetSearch">
+
+</div>
+
+</div>
+
+<!-- FORM DO -->
+
+<div class="card mt-2">
+
+<h3>➕ Tambah Delivery Order</h3>
+
+<br>
+
+<div class="form-grid">
+
+<input
+:value="nomorDOBaru"
+readonly>
+
+<input
+v-model="form.nim"
+placeholder="NIM">
+
+<input
+v-model="form.nama"
+placeholder="Nama">
+
+<select v-model="form.ekspedisi">
+
+<option value="">
+Pilih Ekspedisi
+</option>
+
+<option
+v-for="e in pengirimanList"
+:key="e.kode"
+:value="e.nama">
+
+{{e.nama}}
+
+</option>
+
+</select>
+
+<select v-model="selectedPaket">
+
+<option value="">
+Pilih Paket
+</option>
+
+<option
+v-for="p in paket"
+:key="p.kode"
+:value="p">
+
+{{p.kode}} - {{p.nama}}
+
+</option>
+
+</select>
+
+<input
+type="date"
+v-model="form.tanggalKirim">
+
+</div>
+
+<br>
+
+<div
+class="card"
+v-if="selectedPaket">
+
+<h4>📚 Detail Paket</h4>
+
+<ul>
+
+<li
+v-for="mk in selectedPaket.isi"
+:key="mk">
+
+{{mk}}
+
+</li>
+
+</ul>
+
+<br>
+
+<strong>
+
+{{ formatRupiah(
+selectedPaket.harga
+) }}
+
+</strong>
+
+</div>
+
+<br>
+
+<button
+class="btn"
+@click="tambahDO">
+
+Simpan DO
+
+</button>
+
+</div>
+
+<!-- DATA -->
+
+<div class="card mt-2">
+
+<h3>📋 Data Tracking</h3>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>No DO</th>
+<th>NIM</th>
+<th>Nama</th>
+<th>Status</th>
+<th>Total</th>
+<th>Detail</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<template
+v-for="(item,index) in filteredTracking">
+
+<tr
+:key="'row'+index">
+
+<td>
+{{item.kode}}
+</td>
+
+<td>
+{{item.nim}}
+</td>
+
+<td>
+{{item.nama}}
+</td>
+
+<td>
+{{item.status}}
+</td>
+
+<td>
+{{formatRupiah(item.total)}}
+</td>
+
+<td>
+
+<button
+class="btn"
+@click="toggleDetail(index)">
+
+{{detailIndex===index ? 'Tutup' : 'Detail'}}
+
+</button>
+
+</td>
+
+</tr>
+
+<tr
+v-if="detailIndex===index"
+:key="'detail'+index">
+
+<td colspan="6">
+
+<div class="card">
+
+<h4>
+📦 Detail Delivery Order
+</h4>
+
+<p>
+
+<strong>Ekspedisi:</strong>
+{{item.ekspedisi}}
+
+</p>
+
+<p>
+
+<strong>Tanggal Kirim:</strong>
+{{item.tanggalKirim}}
+
+</p>
+
+<p>
+
+<strong>Paket:</strong>
+{{item.paket}}
+
+</p>
+
+<hr>
+
+<h4>
+🚚 Riwayat Perjalanan
+</h4>
+
+<div
+v-for="(p,i) in item.perjalanan"
+:key="i"
+class="timeline-item">
+
+{{p.waktu}}
+
+<br>
+
+{{p.keterangan}}
+
+</div>
+
+<br>
+
+<input
+v-model="statusBaru"
+@keyup.enter="tambahPerjalanan(item)"
+placeholder="Tambah Status Pengiriman">
+
+<button
+class="btn"
+@click="tambahPerjalanan(item)">
+
+Tambah Status
+
+</button>
+
+</div>
+
+</td>
+
+</tr>
+
+</template>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</template>
