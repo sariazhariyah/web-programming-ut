@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login SITTA - Universitas Terbuka</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="login-page">
+
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                📚 <span>SITTA</span> UT
+            </div>
+        </div>
+    </header>
+
+    <main class="login-main">
+
+        <section class="login-container">
+
+            <h1>Masuk ke SITTA</h1>
+
+            <p class="login-description">
+                Sistem Informasi Transaksi dan Tracking Bahan Ajar
+            </p>
+
+            <form id="loginForm">
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Masukkan email"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Masukkan password"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="btn btn-full">
+                    Login
+                </button>
+
+            </form>
+
+            <div class="login-options">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary btn-full"
+                    data-modal="lupaModal"
+                >
+                    Lupa Password?
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-secondary btn-full"
+                    data-modal="daftarModal"
+                >
+                    Daftar
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- MODAL LUPA PASSWORD -->
+    <div id="lupaModal" class="modal">
+
+        <div class="modal-content">
+
+            <button
+                type="button"
+                class="close"
+                aria-label="Tutup modal"
+            >
+                &times;
+            </button>
+
+            <h2>Lupa Password</h2>
+
+            <p>
+                Silakan menghubungi administrator SITTA untuk proses
+                pengaturan ulang password.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- MODAL DAFTAR -->
+    <div id="daftarModal" class="modal">
+
+        <div class="modal-content">
+
+            <button
+                type="button"
+                class="close"
+                aria-label="Tutup modal"
+            >
+                &times;
+            </button>
+
+            <h2>Daftar Akun</h2>
+
+            <p>
+                Registrasi akun dapat dilakukan melalui administrator
+                UT-Daerah masing-masing.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <footer class="site-footer">
+        <p>SITTA - Universitas Terbuka</p>
+    </footer>
+
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>

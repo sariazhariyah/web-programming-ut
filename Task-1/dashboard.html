@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard SITTA - Universitas Terbuka</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+
+        <div class="header-content">
+
+            <div class="logo">
+                📚 <span>SITTA</span> UT
+            </div>
+
+            <nav class="navbar">
+
+                <ul>
+
+                    <li class="active">
+                        <a href="dashboard.html">Dashboard</a>
+                    </li>
+
+                    <li>
+                        <a href="stok.html">Informasi Bahan Ajar</a>
+                    </li>
+
+                    <li>
+                        <a href="tracking.html">Tracking Pengiriman</a>
+                    </li>
+
+                    <li class="dropdown">
+
+                        <a href="#" class="dropdown-toggle">
+                            Laporan ▾
+                        </a>
+
+                        <ul class="dropdown-menu">
+
+                            <li>
+                                <a
+                                    href="#"
+                                    class="demo-menu"
+                                    data-feature="Monitoring Progress DO Bahan Ajar"
+                                >
+                                    Monitoring Progress DO Bahan Ajar
+                                </a>
+                            </li>
+
+                            <li>
+                                <a
+                                    href="#"
+                                    class="demo-menu"
+                                    data-feature="Rekap Bahan Ajar"
+                                >
+                                    Rekap Bahan Ajar
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </li>
+
+                    <li>
+                        <a
+                            href="#"
+                            class="demo-menu"
+                            data-feature="Histori Transaksi Bahan Ajar"
+                        >
+                            Histori Transaksi
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" id="logoutBtn">
+                            Logout
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <section class="dashboard-welcome">
+
+            <h1>
+                <span id="greeting">Selamat Datang</span>
+            </h1>
+
+            <p id="userGreeting">
+                Selamat datang di Sistem Informasi Transaksi dan Tracking
+                Bahan Ajar Universitas Terbuka.
+            </p>
+
+        </section>
+
+
+        <section class="dashboard-grid">
+
+            <article class="card">
+
+                <h2>Informasi Bahan Ajar</h2>
+
+                <p>
+                    Lihat daftar bahan ajar, kode barang, edisi,
+                    stok dan cover bahan ajar.
+                </p>
+
+                <a href="stok.html" class="btn">
+                    Lihat Stok
+                </a>
+
+            </article>
+
+
+            <article class="card">
+
+                <h2>Tracking Pengiriman</h2>
+
+                <p>
+                    Cari status pengiriman bahan ajar berdasarkan
+                    nomor Delivery Order.
+                </p>
+
+                <a href="tracking.html" class="btn">
+                    Tracking
+                </a>
+
+            </article>
+
+
+            <article class="card">
+
+                <h2>Laporan</h2>
+
+                <p>
+                    Menu laporan terdiri dari Monitoring Progress DO
+                    Bahan Ajar dan Rekap Bahan Ajar.
+                </p>
+
+                <button
+                    type="button"
+                    class="btn btn-secondary demo-feature"
+                    data-feature="Laporan"
+                >
+                    Lihat Menu Laporan
+                </button>
+
+            </article>
+
+
+            <article class="card">
+
+                <h2>Histori Transaksi</h2>
+
+                <p>
+                    Menu histori digunakan untuk melihat riwayat
+                    transaksi bahan ajar.
+                </p>
+
+                <button
+                    type="button"
+                    class="btn btn-secondary demo-feature"
+                    data-feature="Histori Transaksi Bahan Ajar"
+                >
+                    Histori Transaksi
+                </button>
+
+            </article>
+
+        </section>
+
+    </main>
+
+
+    <footer class="site-footer">
+        <p>SITTA - Universitas Terbuka</p>
+    </footer>
+
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>

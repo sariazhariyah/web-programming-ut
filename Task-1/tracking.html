@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tracking Pengiriman - SITTA UT</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <header class="site-header">
+
+        <div class="header-content">
+
+            <div class="logo">
+                📚 <span>SITTA</span> UT
+            </div>
+
+            <nav class="navbar">
+
+                <ul>
+
+                    <li>
+                        <a href="dashboard.html">Dashboard</a>
+                    </li>
+
+                    <li>
+                        <a href="stok.html">Informasi Bahan Ajar</a>
+                    </li>
+
+                    <li class="active">
+                        <a href="tracking.html">Tracking Pengiriman</a>
+                    </li>
+
+                    <li>
+                        <a href="#" id="logoutBtn">Logout</a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main class="tracking-container">
+
+        <section class="card tracking-search">
+
+            <h1>Tracking Pengiriman</h1>
+
+            <p>
+                Masukkan Nomor Delivery Order untuk melihat
+                status pengiriman bahan ajar.
+            </p>
+
+            <form id="trackingForm">
+
+                <div class="form-group tracking-input">
+
+                    <label for="nomorDO">
+                        Nomor Delivery Order
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nomorDO"
+                        placeholder="Contoh: 2023001234"
+                        required
+                    >
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn"
+                >
+                    Cari
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <section
+            id="trackingResult"
+            class="tracking-result"
+        >
+
+            <h2>Hasil Tracking</h2>
+
+
+            <article class="tracking-detail">
+
+                <p>
+                    <strong>Nama Mahasiswa:</strong>
+                    <span id="trackingNama">-</span>
+                </p>
+
+                <p>
+                    <strong>Status Pengiriman:</strong>
+
+                    <span
+                        id="trackingStatus"
+                        class="status-badge"
+                    >
+                        -
+                    </span>
+                </p>
+
+                <p>
+                    <strong>Ekspedisi:</strong>
+                    <span id="trackingEkspedisi">-</span>
+                </p>
+
+                <p>
+                    <strong>Tanggal Kirim:</strong>
+                    <span id="trackingTanggal">-</span>
+                </p>
+
+                <p>
+                    <strong>Jenis Paket:</strong>
+                    <span id="trackingPaket">-</span>
+                </p>
+
+                <p>
+                    <strong>Total Pembayaran:</strong>
+                    <span id="trackingTotal">-</span>
+                </p>
+
+            </article>
+
+
+            <article class="progress-container">
+
+                <h3>Progress Pengiriman</h3>
+
+                <div class="progress-bar">
+
+                    <div
+                        id="progressFill"
+                        class="progress-fill"
+                    ></div>
+
+                </div>
+
+                <p
+                    id="progressText"
+                    class="progress-text"
+                >
+                    -
+                </p>
+
+            </article>
+
+
+            <article class="tracking-history">
+
+                <h3>Riwayat Perjalanan</h3>
+
+                <ul id="trackingRiwayat"></ul>
+
+            </article>
+
+        </section>
+
+    </main>
+
+
+    <footer class="site-footer">
+        <p>SITTA - Universitas Terbuka</p>
+    </footer>
+
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>
